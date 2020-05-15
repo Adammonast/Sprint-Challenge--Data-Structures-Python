@@ -43,7 +43,6 @@ class RingBuffer:
         self.capacity = capacity
         self.length = 0
         self.head = None
-        # set up a node to be removed
         self.node_removed = None
 
     def append(self, item):
@@ -64,7 +63,6 @@ class RingBuffer:
                 current = current.next_node
                 current.next_node = self.head
                 self.node_removed = current
-        # if at capacity
         else:
             # set up a new node to be removed
             to_be_removed = self.node_removed.next_node.next_node
